@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Container,Row,Col,Form,Button } from 'react-bootstrap';
+import { Container,Row,Col,Form,Button,Card,ListGroup } from 'react-bootstrap';
 
 
 const ListContact = () => {
@@ -32,6 +32,33 @@ const ListContact = () => {
           </Form>
           </Col>
         </Row>
+      </Container>
+    </section>
+    <section>
+      <Container fluid >
+        <div className='col-md-6'>
+        <Row>
+          <Col xs={4}>
+          <Card>
+            <Card.Body>
+              <img src='https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg' className='img-fluid contact-img'  />
+            </Card.Body>
+          </Card>
+          </Col>
+          <Col xs={7}>
+            <ListGroup>
+              <ListGroup.Item>Name: <span className='fw-bold'>Raja Sahani</span> </ListGroup.Item>
+              <ListGroup.Item>Mobile: <span className='fw-bold'>9876543210</span> </ListGroup.Item>
+              <ListGroup.Item>Email: <span className='fw-bold'>abc@gmail.com</span></ListGroup.Item>
+            </ListGroup>
+          </Col>
+          <Col xs={1}>
+            <Button className='mb-2' variant='info'><i className='fa fa-eye'/></Button>
+            <Button className='mb-2' variant='primary'><i className='fa fa-pencil'/></Button>
+            <Button className='mb-2' variant='danger'><i className='fa fa-trash'/></Button>
+          </Col>
+          </Row>
+        </div>
       </Container>
     </section>
     </>
