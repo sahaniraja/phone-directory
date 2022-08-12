@@ -1,7 +1,7 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 import './App.css';
-import Navbar from './components/header/Navbar';
+import Header from './components/header/Header';
 import Homepage from './components/Homepage';
 import CreateContact from './components/contactlist/CreateContact';
 import ViewContact from './components/contactlist/ViewContact';
@@ -12,7 +12,7 @@ import ListContact from './components/contactlist/ListContact';
 const App =() => {
   return (
     <React.Fragment>
-    <Navbar/>
+    <Header/>
     <Routes>
       <Route path={'/'} element={<Homepage/>} />
       <Route path={'/contact/list'} element={<ListContact/>}/>
