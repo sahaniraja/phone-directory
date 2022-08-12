@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { Container,Row,Col,Form,Button,Card,ListGroup } from 'react-bootstrap';
 
-
 const ListContact = () => {
   return (
     <>
@@ -10,7 +9,7 @@ const ListContact = () => {
       <Container fluid>
         <Row>
           <Col>
-          <p className='h3'>Create Contact
+          <p className='h3 fw-bold'>Create Contact
           <Link to='/contact/create' className='btn btn-success ms-2'><i className='fa fa-plus-circle me-2'></i>New</Link>
           </p>
           <p className='fst-italic'>
@@ -53,9 +52,9 @@ const ListContact = () => {
             </ListGroup>
           </Col>
           <Col xs={1}>
-            <Button className='mb-2' variant='info'><i className='fa fa-eye'/></Button>
-            <Button className='mb-2' variant='primary'><i className='fa fa-pencil'/></Button>
-            <Button className='mb-2' variant='danger'><i className='fa fa-trash'/></Button>
+            <Link to={`/contact/view/:contid`} className='btn btn-warning my-1'><i className='fa fa-eye'/></Link>
+            <Link to={`/contact/update/:contid`} className='btn btn-success my-1'><i className='fa fa-pencil'/></Link>
+            <Link to={`/`} className='btn btn-danger my-1'><i className='fa fa-trash'/></Link>
           </Col>
           </Row>
         </div>

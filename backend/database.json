@@ -1,0 +1,72 @@
+{
+    "contactlist":[
+        {
+        "id" : "CON/2022/00001",
+        "name" : "ABC",
+        "company": "Google",
+        "email": "abc@gmail.com",
+        "title": "Googler",
+        "mobile": "9876543210",
+        "photo": "https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg",
+        "groupid": "1"
+        },
+        {
+            "id" : "CON/2022/00002",
+            "name" : "ABC",
+            "company": "Google",
+            "email": "abc@gmail.com",
+            "title": "Googler",
+            "mobile": "9876543210",
+            "photo": "https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg",
+            "groupid": "3"
+        },
+        {
+            "id" : "CON/2022/00003",
+            "name" : "ABC",
+            "company": "Google",
+            "email": "abc@gmail.com",
+            "title": "Googler",
+            "mobile": "9876543210",
+            "photo": "https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg",
+            "groupid": "2"
+        },
+        {
+            "id" : "CON/2022/00004",
+            "name" : "ABC",
+            "company": "Google",
+            "email": "abc@gmail.com",
+            "title": "Googler",
+            "mobile": "9876543210",
+            "photo": "https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg",
+            "groupid": "3"
+        },
+        {
+            "id" : "CON/2022/00005",
+            "name" : "ABC",
+            "company": "Google",
+            "email": "abc@gmail.com",
+            "title": "Googler",
+            "mobile": "9876543210",
+            "photo": "https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg",
+            "groupid": "2"
+        }
+    ],
+    "groups" :[
+        {
+            "id":"1",
+            "groupname":"Friends"
+        },
+        {
+            "id":"2",
+            "groupname":"Office"
+        },
+        {
+            "id":"3",
+            "groupname":"College"
+        },
+        {
+            "id":"4",
+            "groupname":"Family"
+        }
+    ]
+}

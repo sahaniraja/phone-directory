@@ -6,7 +6,6 @@ import Homepage from './components/Homepage';
 import CreateContact from './components/contactlist/CreateContact';
 import ViewContact from './components/contactlist/ViewContact';
 import UpdateContact from './components/contactlist/UpdateContact';
-import DeleteContact from './components/contactlist/DeleteContact';
 import ListContact from './components/contactlist/ListContact';
 
 const App =() => {
@@ -19,7 +18,6 @@ const App =() => {
       <Route path={'/contact/create'} element={<CreateContact/>}/>
       <Route path={'/contact/update/:contid'} element={<UpdateContact/>}/>
       <Route path={'/contact/view/:contid'} element={<ViewContact/>}/>
-      <Route path={'/contact/delete/:contid'} element={<DeleteContact/>}/>
     </Routes>
     </React.Fragment>
   );
