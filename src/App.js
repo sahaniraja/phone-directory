@@ -14,10 +14,10 @@ const App =() => {
     <Header/>
     <Routes>
       <Route path={'/'} element={<Homepage/>} />
-      <Route path={'/contact/list'} element={<ListContact/>}/>
-      <Route path={'/contact/create'} element={<CreateContact/>}/>
-      <Route path={'/contact/update/:contid'} element={<UpdateContact/>}/>
-      <Route path={'/contact/view/:contid'} element={<ViewContact/>}/>
+      <Route path={'/contacts'} element={<ListContact/>}/>
+      <Route path={'/contacts/create'} element={<CreateContact/>}/>
+      <Route path={'/contacts/edit/:ContId'} element={<UpdateContact/>}/>
+      <Route path={'/contacts/view/:ContId'} element={<ViewContact/>}/>
     </Routes>
     </React.Fragment>
   );

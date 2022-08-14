@@ -1,8 +1,14 @@
 import React from 'react'
+import Loader from './others/Loader'
 
 const Homepage = () => {
   return (
-    <div>Homepage</div>
+
+    <div>
+      
+      <Loader/>
+
+    </div>
   )
 }
 

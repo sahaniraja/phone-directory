@@ -1,8 +1,48 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React,{useEffect,useState} from 'react';
+import {Link, useParams} from 'react-router-dom';
 import {Container,Row,Col,ListGroup} from 'react-bootstrap';
+import Loader from '../others/Loader';
+import { ContactService } from '../../service/ContactService';
 
 const ViewContact = () => {
+  
+  let {ContId} = useParams();
+
+  let [state,setState] = useState({
+    loading: false,
+    contact: {},
+    groupname: {},
+    errMsg: ''
+  });
+
+  const viewData = async () =>{
+    try{
+      setState({...state,loading:true});
+    let response = await ContactService.getSingleContact(ContId);
+    let grpnameres = await ContactService.getGrpName(response.data);
+    //console.log(grpnameres.data);
+    setState({
+      ...state,
+      loading: false,
+      contact: response.data,
+      groupname: grpnameres.data
+    })
+  } catch(error)
+  {
+    setState({
+      ...state,
+      loading:false,
+      errMsg: error.message
+    })
+  }
+  }
+
+  useEffect(()=>{
+    viewData()
+  },[ContId]);
+
+  let {loading, contact, groupname, errMsg} = state;
+
   return (
     <>
       <section>
@@ -13,25 +53,33 @@ const ViewContact = () => {
             <p className='fst-italic'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, aut aliquam provident sed iusto nesciunt, dicta veniam adipisci nemo magnam, vitae labore dolores! Nulla voluptatum dicta earum recusandae error consequatur?</p>
             </Col>
           </Row>
-          <Row>
-            <Col xs={4}>
-              <img src='https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg' />
+          
+            { loading ? <Loader/>: 
+            <Row>
+            {
+              Object.keys(contact).length > 0 && Object.keys(groupname).length > 0 && <React.Fragment>
+                <Col xs={4}>
+              <img src={contact.photo} alt='Profile' />
             </Col>
             <Col xs={7}>
             <ListGroup>
-              <ListGroup.Item>Name: <span className='fw-bold'>Raja Sahani</span> </ListGroup.Item>
-              <ListGroup.Item>Mobile: <span className='fw-bold'>9876543210</span> </ListGroup.Item>
-              <ListGroup.Item>Email: <span className='fw-bold'>abc@gmail.com</span></ListGroup.Item>
-              <ListGroup.Item>Company: <span className='fw-bold'>Om Sai Pvt Ltd.</span></ListGroup.Item>
-              <ListGroup.Item>Title: <span className='fw-bold'>Mr.</span></ListGroup.Item>
-              <ListGroup.Item>Group: <span className='fw-bold'>Family</span></ListGroup.Item>
+              <ListGroup.Item>Name: <span className='fw-bold'>{contact.name}</span> </ListGroup.Item>
+              <ListGroup.Item>Mobile: <span className='fw-bold'>{contact.mobile}</span> </ListGroup.Item>
+              <ListGroup.Item>Email: <span className='fw-bold'>{contact.email}</span></ListGroup.Item>
+              <ListGroup.Item>Company: <span className='fw-bold'>{contact.company}</span></ListGroup.Item>
+              <ListGroup.Item>Title: <span className='fw-bold'>{contact.title}</span></ListGroup.Item>
+              <ListGroup.Item>Group: <span className='fw-bold'>{groupname.name}</span></ListGroup.Item>
             </ListGroup>
             </Col>
-          </Row>
+              </React.Fragment>
+            }
+            </Row>
+            }
+         
         </Container>
       </section>
       <section className='p-3'>
-        <Link to={`/contact/list`} className='btn btn-warning text-dark'>Back</Link>
+        <Link to={`/contacts`} className='btn btn-warning text-dark'>Back</Link>
       </section>
     </>
   )
