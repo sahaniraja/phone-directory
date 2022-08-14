@@ -99,35 +99,41 @@ const  getData = async () => {
       loading ? <Loader/> : 
       <section>
       <Container fluid>
+      <Row>
         {
           searchContacts.length > 0 && searchContacts.map(contact => {
             return(
-              <div className='col-md-6 my-2' key={contact.id}>
-                <Row>
-                  <Col xs={4}>
-                  <Card>
-                    <Card.Body>
-                      <img src={contact.photo} className='img-fluid contact-img'  />
-                    </Card.Body>
-                  </Card>
-                  </Col>
-                  <Col xs={7}>
-                    <ListGroup>
-                      <ListGroup.Item>Name: <span className='fw-bold'>{contact.name}</span> </ListGroup.Item>
-                      <ListGroup.Item>Mobile: <span className='fw-bold'>{contact.mobile}</span> </ListGroup.Item>
-                      <ListGroup.Item>Email: <span className='fw-bold'>{contact.email}</span></ListGroup.Item>
-                    </ListGroup>
-                  </Col>
-                  <Col xs={1}>
-                    <Link to={`/contacts/view/${contact.id}`} className='btn btn-warning my-1'><i className='fa fa-eye'/></Link>
-                    <Link to={`/contacts/edit/${contact.id}`} className='btn btn-success my-1'><i className='fa fa-pencil'/></Link>
-                    <Button variant='danger' onClick={()=>onDelCont(contact.id)}><i className='fa fa-trash'/></Button>
-                  </Col>
-                  </Row>
+              <div className='col-md-6' key={contact.id}>
+                <div className='card my-2'>
+                  <div className='card-body'>
+                    <div className='row align-items-center d-flex justify-content'>
+                      <Col xs={4}>
+                        <Card>
+                          <Card.Body>
+                            <img src={contact.photo} className='img-fluid contact-img'  />
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                      <Col xs={7}>
+                        <ListGroup>
+                          <ListGroup.Item>Name: <span className='fw-bold'>{contact.name}</span> </ListGroup.Item>
+                          <ListGroup.Item>Mobile: <span className='fw-bold'>{contact.mobile}</span> </ListGroup.Item>
+                          <ListGroup.Item>Email: <span className='fw-bold'>{contact.email}</span></ListGroup.Item>
+                        </ListGroup>
+                      </Col>
+                      <Col xs={1} className='d-flex flex-column align-items-center'>
+                        <Link to={`/contacts/view/${contact.id}`} className='btn btn-warning my-1'><i className='fa fa-eye'/></Link>
+                        <Link to={`/contacts/edit/${contact.id}`} className='btn btn-success my-1'><i className='fa fa-pen'/></Link>
+                        <Button variant='danger' onClick={()=>onDelCont(contact.id)}><i className='fa fa-trash my-1'/></Button>
+                      </Col>
+                    </div>
+                  </div>
+                  </div>
               </div>
             )
           })
         }
+        </Row>
       </Container>
     </section>
     }
